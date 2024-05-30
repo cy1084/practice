@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="./css/login.css">
+<script type="text/javascript" src="./js/login.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<script type="text/javascript">
+	var ids = [ "스위스", "토마토", "기러기", "인도인", "우영우" ];
+	var pw = '1234';
+	document.getElementById("loginForm").addEventListener('submit',
+			function(event) {
+
+				var id = document.getElementById("id");
+				var pw = document.getElementById("pw");
+
+				if (!id.value || !pw.value) {
+					alert("아이디와 비밀번호를 모두 입력해주세요");
+					event.preventDefault();
+				} else {
+					// -----------서버 전송 코드
+
+				}
+			});
+</script>
+</head>
+<body>
+	<div class="login-container">
+		<form action="./" id="loginForm" onsubmit="return validation();">
+			<input type="text" id="id" placeholder="아이디"> 
+			<input type="text" id="pw" placeholder="비밀번호"> 
+			<input type="submit" value="로그인">
+		</form>
+		<a href="#">비밀번호를 잊으셨나요?</a>
+	</div>
+
+<script>
+	function validation(){
+		const id = document.querySelector('#id');
+		const pw = document.querySelector('#pw');
+		if(id.value.trim().length<3){
+			alert('아이디는 3글자 이상입니다.');
+			id.value = '';
+			id.focus();
+			return false;
+		}
+		if(pw.value.trim().length<1){ 
+			alert('비밀번호는 1글자 이상입니다.');
+			pw.value = '';
+			pw.focus();
+			return false;
+		}
+	return true;
+}
+</script>
+
+</body>
+</html>
